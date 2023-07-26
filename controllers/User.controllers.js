@@ -107,3 +107,14 @@ export const updateProfile = async (req, res) => {
         return res.send(error)
     }
 }
+
+export const singleSellProduct = async (req, res) => {
+    try {
+        const { id } = req.body;
+        if (!id) return res.send("Id is required!")
+        const response = await Product.findById(id);
+        return res.send(response)
+    } catch (error) {
+        return res.send(error)
+    }
+}
